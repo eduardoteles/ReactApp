@@ -8,6 +8,8 @@ const List = [
   { id: 5, description: "Item 5" },
 ];
 
+let selectedIndex = -1;
+
 //Uncomment the line below to test the empty list scenario
 //const List = [];
 
@@ -43,7 +45,15 @@ function ListGroup() {
 
       <ul className="list-group">
         {List.map((item, index) => (
-          <li key={index} onClick={handleClick} className="list-group-item">
+          <li
+            key={index}
+            className={
+              index === selectedIndex
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            onClick={() => (selectedIndex = index)}
+          >
             {item.description}
           </li>
         ))}
