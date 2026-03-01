@@ -1,4 +1,4 @@
-import type { MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 
 const List = [
   { id: 1, description: "Item 1" },
@@ -8,7 +8,7 @@ const List = [
   { id: 5, description: "Item 5" },
 ];
 
-let selectedIndex = -1;
+//let selectedIndex = -1;
 
 //Uncomment the line below to test the empty list scenario
 //const List = [];
@@ -33,6 +33,8 @@ const handleClick = (event: MouseEvent) => {
 };
 
 function ListGroup() {
+  const [selectedItem, setSelectedItem] = useState(-1);
+
   return (
     <>
       {messageEmpty ? (
@@ -48,11 +50,12 @@ function ListGroup() {
           <li
             key={index}
             className={
-              index === selectedIndex
+              index === selectedItem
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            onClick={() => (selectedIndex = index)}
+            //onClick={() => (selectedIndex = index)}
+            onClick={() => setSelectedItem(index)}
           >
             {item.description}
           </li>
