@@ -33,6 +33,7 @@ const handleClick = (event: MouseEvent) => {
 };
 
 function ListGroup() {
+  //state hook
   const [selectedItem, setSelectedItem] = useState(-1);
 
   return (
