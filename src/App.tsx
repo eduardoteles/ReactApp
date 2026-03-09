@@ -9,13 +9,10 @@ function App() {
     "Porto Moniz",
   ];
 
-  const Countries = ["Portugal", "Espanha", "França", "Itália", "Alemanha"];
+  const handleSelectItem = (item: string) => {
+    console.log(item);
+  };
 
-  return (
-    <div>
-      <ListGroupWithProps items={Cities} title="Cities" />
-      <ListGroupWithProps items={Countries} title="Countries" />
-    </div>
-  );
+  return <div></div>;
 }
 export default App;
