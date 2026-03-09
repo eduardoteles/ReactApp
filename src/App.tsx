@@ -1,18 +1,25 @@
-import ListGroupWithProps from "./components/ListGroupWithProps";
+import Alert from "./components/Alert";
 
 function App() {
-  const Cities = [
-    "Funchal",
-    "Santa Cruz",
-    "Rib Brava",
-    "Calheta",
-    "Porto Moniz",
-  ];
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
-
-  return <div></div>;
+  return (
+    <>
+      <Alert>
+        <div>Este é o alerta 1</div>
+      </Alert>
+      <Alert>
+        <div>Este é o alerta 2</div>
+      </Alert>
+      <Alert>
+        <div>Este é o alerta 3</div>
+      </Alert>
+      <Alert>
+        <div>Este é o alerta 4</div>
+      </Alert>
+      <Alert>
+        <div>Este é o alerta 5</div>
+      </Alert>
+    </>
+  );
 }
+
 export default App;
