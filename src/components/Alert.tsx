@@ -2,22 +2,25 @@ import React, { use, useState, type ReactNode } from "react";
 
 interface AlertProps {
   children: ReactNode;
+  onSelectItem: (item: string) => void;
 }
 
-function Alert({ children }: AlertProps) {
-  const [selectedItem, setSelectedItem] = useState("");
-  const [selectStyle, setSelectStyle] = useState(0);
+function Alert({ children, onSelectItem }: AlertProps) {
+  //const [selectedItem, setSelectedItem] = useState("");
+  const [selectStyle, setSelectStyle] = useState(true);
 
   return (
     <>
       <div
-        className="alert alert-primary"
+        className={selectStyle ? "alert alert-primary" : "alert alert-danger"}
         role="alert"
-        onClick={(event) => setSelectedItem(event.target.innerText)}
+        onClick={() => {
+          setSelectStyle(!selectStyle);
+          onSelectItem("Alert Clicked");
+        }}
       >
         {children}
       </div>
-      <div>{selectedItem}</div>
     </>
   );
 }
