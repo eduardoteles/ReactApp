@@ -3,12 +3,11 @@ import Alert from "./components/Alert";
 
 function App() {
   //State for logs
-  const [logs, setLogs] = useState("");
+  const [logs, setLogs] = useState<string[]>([]);
 
   //Handler for selection event
-  const onSelectItem = (logs: string) => {
-    console.log("Item selecionado:", logs);
-    setLogs(logs);
+  const onSelectItem = (id: string, data: string) => {
+    setLogs([...logs, data]);
   };
 
   return (
@@ -17,21 +16,31 @@ function App() {
         <div className="row">
           <div className="col">
             <h1>Componentes</h1>
-            <Alert onSelectItem={onSelectItem} id="secção de alerta 1">
+            <Alert onSelectItem={onSelectItem} id="1" message="Alerta secção 1">
               <div>
                 <h3>Alerta 1</h3>
               </div>
             </Alert>
-            <Alert onSelectItem={onSelectItem} id="secção de alerta numero 2">
+            <Alert onSelectItem={onSelectItem} id="2" message="Alerta secção2">
               <div>
-                <h3>Alerta 1</h3>
+                <h3>Alerta 2</h3>
               </div>
             </Alert>
           </div>
-        </div>
-        <div className="col">
-          <div>Logs de operação</div>
-          <div>Utilizador clicou em {logs}</div>
+          <div className="col">
+            <div>
+              <h1>Logs de operação</h1>
+            </div>
+            <div>
+              Utilizador clicou em{" "}
+              {logs.map((log, index) => (
+                <div key={index}>
+                  {log}
+                  <br />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </>

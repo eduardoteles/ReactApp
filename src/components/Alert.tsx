@@ -2,11 +2,12 @@ import React, { use, useState, type ReactNode } from "react";
 
 interface AlertProps {
   children: ReactNode;
-  onSelectItem: (item: string) => void;
+  onSelectItem: (id: string, item: string) => void;
   id: string;
+  message: string;
 }
 
-function Alert({ children, onSelectItem, id }: AlertProps) {
+function Alert({ children, onSelectItem, id, message }: AlertProps) {
   const [selectStyle, setSelectStyle] = useState(true);
 
   return (
@@ -16,7 +17,7 @@ function Alert({ children, onSelectItem, id }: AlertProps) {
         role="alert"
         onClick={() => {
           setSelectStyle(!selectStyle);
-          onSelectItem(id);
+          onSelectItem(id, message);
         }}
       >
         {children}
