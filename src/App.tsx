@@ -6,7 +6,7 @@ function App() {
   const [logs, setLogs] = useState<string[]>([]);
 
   //Handler for selection event
-  const onSelectItem = (id: string, data: string) => {
+  const setSelectItem = (id: string, data: string) => {
     setLogs([...logs, data]);
   };
 
@@ -16,12 +16,16 @@ function App() {
         <div className="row">
           <div className="col">
             <h1>Componentes</h1>
-            <Alert onSelectItem={onSelectItem} id="1" message="Alerta secção 1">
+            <Alert
+              onSelectItem={setSelectItem}
+              id="1"
+              message="Alerta secção 1"
+            >
               <div>
                 <h3>Alerta 1</h3>
               </div>
             </Alert>
-            <Alert onSelectItem={onSelectItem} id="2" message="Alerta secção2">
+            <Alert onSelectItem={setSelectItem} id="2" message="Alerta secção2">
               <div>
                 <h3>Alerta 2</h3>
               </div>
